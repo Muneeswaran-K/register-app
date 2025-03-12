@@ -30,4 +30,4 @@ pipeline {
                  sh "mvn test"
            }
        }
-     )
+    }
