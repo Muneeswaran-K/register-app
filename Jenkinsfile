@@ -38,6 +38,8 @@ pipeline {
                         sh "mvn sonar:sonar"
                 }
             }
+	}
+    }
 	stage("Quality Gate"){
            steps {
                script {
