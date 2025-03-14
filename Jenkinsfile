@@ -6,11 +6,14 @@ pipeline {
     }
     environment {
         APP_NAME = "register-app-pipeline"
-        RELEASE = "1.0.0"
+        //RELEASE = "1.0.0"
+        RELEASE = "Test"
         DOCKER_USER = "huntik"
         DOCKER_PASS = 'dockerhub'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
-        IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+        CURRENT_DATE = sh(script: 'date +%Y%m%d', returnStdout: true).trim()
+        //IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+        IMAGE_TAG = "${CURRENT_DATE}-${BUILD_NUMBER}"
         JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
     stages{
