@@ -13,7 +13,7 @@ pipeline {
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         CURRENT_DATE = sh(script: 'date +%Y%m%d', returnStdout: true).trim()
         //IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
-        IMAGE_TAG = "${CURRENT_DATE}-${BUILD_NUMBER}"
+        IMAGE_TAG = "${RELEASE}-${CURRENT_DATE}-${BUILD_NUMBER}"
         JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
     stages{
